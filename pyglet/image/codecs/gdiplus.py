@@ -144,7 +144,6 @@ class GDIPlusDecoder(ImageDecoder):
         # Load image from stream
         bitmap = c_void_p()
         status = gdiplus.GdipCreateBitmapFromStream(stream, byref(bitmap))
-        kernel32.GlobalFree(hglob)
         if status != 0:
             # TODO release stream
             raise ImageDecodeException(
